@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+  margin: auto 0 0 0 !important;
+}
+
+.hero {
+  height: 100vh;
+  background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url("http://www.ibiobq.org/wp-content/uploads/2015/08/o-CHICAGO-RIVER-facebook.jpg");
+  background-size: cover;
+}
+
+.mapContain {
+  display: flex;
+  height: 100vh;
+}
+
+.listDetail-contain {
+  width: 40%;
+  overflow: auto;
+}
+
+.listDetail-contain ul li {
+  list-style: none;
+}
+
+form {
+  top: 50%;
+  display: flex !important;
+}
+
+.fields {
+  margin: auto !important;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  height: 300px;
+}
+
+.listDetail-media {
+  width: 60%;
+}
+
+.listDetail-info {
+  width: 40%;
+}
+
+.list-item:hover {
+  background: #9bd0e0;
+}
+
+
+.activeClick {
+  background: #ab7d41 !important;
+}

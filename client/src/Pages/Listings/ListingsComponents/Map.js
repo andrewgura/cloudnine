@@ -16,7 +16,7 @@ handleListing(active) {
  }
 
   render() {
-    const { listings } = this.props;
+    const { listings, checkin, checkout } = this.props;
 
     return (
       <div className="mapContain">
@@ -38,7 +38,7 @@ handleListing(active) {
         <ul>
           {listings.map((item, key)=> {
             return(
-              <ListingDetail key={key} listing={item} />
+              <ListingDetail key={key} listing={item} checkin={checkin} checkout={checkout} />
             )
           })}
         </ul>

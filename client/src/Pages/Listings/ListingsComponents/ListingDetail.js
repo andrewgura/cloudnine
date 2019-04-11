@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import { Image } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { setHighlight } from '../../../actions/highlightListingActions';
@@ -14,10 +15,10 @@ class ListingDetail extends Component {
 
   componentDidMount(){
     let name = this.props.listing.name;
-    name = name.split("|")[1]; // Split by |, get first element of that array  
-    if(name.includes("·")) name = name.split("·")[1].trim(); //trim white spaces at start/end
-    name = name.replace(/ /g,"-").toLowerCase(); //removes bullet point
-    name = name.replace("/", "-");
+    name = name.split("|")[1]; // Split by |, get first element of that array
+  //  if(name.includes("·")) name = name.split("·")[1].trim(); //trim white spaces at start/end
+//    name = name.replace(/ /g,"-").toLowerCase(); //removes bullet point
+//    name = name.replace("/", "-");
 
     this.setState({name: name})
   }
@@ -27,7 +28,7 @@ class ListingDetail extends Component {
   }
 
   render() {
-    const { listing } = this.props;
+    const { listing, checkin, checkout } = this.props;
     const { name } = this.state;
 
 
@@ -45,7 +46,7 @@ class ListingDetail extends Component {
             <p>{listing.address}</p>
             <p>${listing.price}</p>
             <p>Max # Guests: {listing.personCapacity}</p>
-            <a href={`/${name}/${listing.id}`} className="ui button green" type='submit'>View</a>
+            <Link to={{pathname: `/${name}/${listing.id}`, state:{checkin: checkin, checkout: checkout} }} className="ui button green" type='submit'>View</Link>
           </div>
 
       </li>

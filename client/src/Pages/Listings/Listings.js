@@ -36,9 +36,9 @@ async componentDidMount(e) {
 }
 
   render() {
-    const { listings } = this.state;
+    const { listings, start, out } = this.state;
     return (
-        <Map listings={listings}/>
+        <Map listings={listings} checkin={start} checkout={out} />
     );
   }
 }

@@ -41,7 +41,7 @@ render() {
         name="Business LLC" //Modal Header
         description="Upgrade to a premium account today."
         panelLabel="Go Premium" //Submit button in modal
-        amount={2} //Amount in cents $9.99
+        amount={this.props.totalPrice * 100} //Amount in cents $9.99
         token={this.onToken.bind(this)}
         stripeKey={publishableKey}
         billingAddress={false}

@@ -15,10 +15,11 @@ class ListingDetail extends Component {
 
   componentDidMount(){
     let name = this.props.listing.name;
+    if(name === "Sears Tower") name = "2001.4B | Alto · Calumet Suite 3beds near McCormick Place|by Cloud9"
     name = name.split("|")[1]; // Split by |, get first element of that array
-  //  if(name.includes("·")) name = name.split("·")[1].trim(); //trim white spaces at start/end
-//    name = name.replace(/ /g,"-").toLowerCase(); //removes bullet point
-//    name = name.replace("/", "-");
+    if(name.includes("·")) name = name.split("·")[1].trim(); //trim white spaces at start/enwd
+    name = name.replace(/ /g,"-").toLowerCase(); //removes bullet point
+    name = name.replace("/", "-");
 
     this.setState({name: name})
   }

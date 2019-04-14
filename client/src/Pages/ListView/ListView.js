@@ -1,6 +1,5 @@
 import React from 'react';
 import ListInfo from './ListViewComponents/ListInfo';
-import BookNow from './ListViewComponents/BookNow';
 
 
 function ListView(props) {
@@ -11,7 +10,6 @@ function ListView(props) {
     return (
       <div>
         <ListInfo id={id} checkin={checkin} checkout={checkout} />
-        <BookNow />
       </div>
     );
 

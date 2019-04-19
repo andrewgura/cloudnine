@@ -1,26 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Icon } from 'semantic-ui-react';
 import { handleChange } from '../../../actions/activeListingActions';
-
-const mapStyle = {
- backgroundImage: 'url(https://cdn3.iconfinder.com/data/icons/map-markers-2/512/marker_2-512.png)',
- position: 'absolute',
- width: '40px',
- height: '40px',
- backgroundSize: '100%',
- zIndex: '6500'
-}
-
-
-
-const activeMapStyle = {
- backgroundImage: 'url(https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color/254000/66-512.png)',
- position: 'absolute',
- width: '40px',
- height: '40px',
- backgroundSize: '100%',
- zIndex: '6500'
-}
+import mapIcon from '../../../media/comment-map-icon.png';
 
 class MapListing extends Component {
   constructor(props) {
@@ -36,11 +18,11 @@ setMapMarker(){
   const propertyID = this.props.data.id;
 
   if(this.state.active) {
-    return activeMapStyle
+    return "mapIcon-active"
   } else if(highLightID === propertyID){
-    return activeMapStyle
+    return "mapIcon-active"
   } else {
-    return mapStyle
+    return "mapIcon-notActive"
   }
 }
 
@@ -57,8 +39,11 @@ setFocus(){
 
   render() {
     const { lat, lng } = this.props;
+
     return (
-      <i lat={lat} lng={lng} style={this.setMapMarker()} onClick={this.setFocus.bind(this)} onMouseOver={this.setActive.bind(this)} onMouseOut={this.setActive.bind(this)}/>
+      <div className={this.setMapMarker()} lat={lat} lng={lng}  onClick={this.setFocus.bind(this)} onMouseOver={this.setActive.bind(this)} onMouseOut={this.setActive.bind(this)}>
+        ${this.props.data.price}
+      </div>
     );
   }
 }

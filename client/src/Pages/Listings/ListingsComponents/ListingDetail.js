@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import SlideShow from './SlideShow';
 import { Link } from 'react-router-dom'
-import { Image } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { setHighlight } from '../../../actions/highlightListingActions';
 
@@ -9,19 +9,17 @@ class ListingDetail extends Component {
   constructor(props){
     super(props);
       this.state = {
-        name: ''
+        name: '',
+        roomType: ''
       }
     }
 
   componentDidMount(){
     let name = this.props.listing.name;
-    if(name === "Sears Tower") name = "2001.4B | Alto · Calumet Suite 3beds near McCormick Place|by Cloud9"
-    name = name.split("|")[1]; // Split by |, get first element of that array
-    if(name.includes("·")) name = name.split("·")[1].trim(); //trim white spaces at start/enwd
-    name = name.replace(/ /g,"-").toLowerCase(); //removes bullet point
-    name = name.replace("/", "-");
+    let nameSplit = name.split("·")[1].trim();
+    let roomType = name.split("|")[1].split("·")[0].trim();
 
-    this.setState({name: name})
+    this.setState({name: nameSplit, roomType: roomType})
   }
 
   highlight(id){
@@ -30,7 +28,7 @@ class ListingDetail extends Component {
 
   render() {
     const { listing, checkin, checkout } = this.props;
-    const { name } = this.state;
+    const { name, roomType } = this.state;
 
 
     return (
@@ -38,18 +36,17 @@ class ListingDetail extends Component {
         className={this.props.activeListing.activeListing.value === listing.id ? 'activeClick' : 'list-item'}
         onMouseEnter={this.highlight.bind(this, listing.id)}
         onMouseLeave={this.highlight.bind(this, 0)}>
-
           <div className="listDetail-media">
-            <Image src={listing.listingImages[0].url} width="100%" height="100%" />
+            <SlideShow images={listing.listingImages}/>
           </div>
 
           <div className="listDetail-info">
-            <p>{listing.address}</p>
-            <p>${listing.price}</p>
-            <p>Max # Guests: {listing.personCapacity}</p>
-            <Link to={{pathname: `/${name}/${listing.id}`, state:{checkin: checkin, checkout: checkout} }} className="ui button green" type='submit'>View</Link>
+            <span>{roomType}</span>
+            <h3>{name}</h3>
+              <p>${listing.price}</p>
+              <p>Max # Guests: {listing.personCapacity}</p>
+              {/* <Link to={{pathname: `/${name}/${listing.id}`, state:{checkin: checkin, checkout: checkout} }} className="ui button green" type='submit'>View</Link> */}
           </div>
-
       </li>
     );
   }

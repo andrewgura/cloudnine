@@ -19,7 +19,6 @@
     "redux": "^4.0.1",
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
-    "save": "^2.3.3",
     "semantic-ui-react": "^0.86.0"
   },
   "scripts": {

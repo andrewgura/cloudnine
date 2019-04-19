@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 a {
@@ -19,7 +20,7 @@ a {
 }
 
 .listDetail-contain {
-  width: 40%;
+  width: 70%;
   overflow: auto;
 }
 
@@ -41,19 +42,46 @@ form {
 ul {
   margin: 0;
   padding: 0;
+  display: inline-flex;
+  flex-wrap: wrap;
 }
 
-li {
-  display: flex;
-  height: 300px;
+h3 {
+  margin-top: 2px;
+  letter-spacing: .08rem;
+  font-size: 20px;
 }
 
-.listDetail-media {
-  width: 60%;
+.listDetail-media img {
+  border-radius: 10px;
+  max-height: 200px;
 }
 
-.listDetail-info {
-  width: 40%;
+.mapIcon-notActive {
+  padding: 7px;
+  color: black;
+  background-color: #83aaf1;
+  font-weight: bold;
+  width: 45px;
+  border-radius: 20px;
+}
+
+.mapIcon-active {
+  padding: 7px;
+  color: black;
+  background-color: #b3e6b2;
+  font-weight: bold;
+  width: 45px;
+  border-radius: 20px;
+  z-index: 7000;
+  position: absolute;
+}
+
+.list-item {
+  background-color: #fff;
+  flex: 1 0 21%;
+  margin: 10px;
+  padding: 10px;
 }
 
 .list-item:hover {
@@ -79,14 +107,34 @@ li {
   background-color: #d25353;
 }
 
+.chevron {
+  color: #0000002e;
+  position: absolute;
+  z-index: 5000;
+}
+
+.chevron:hover {
+  color: #d2d2d2;
+}
 
 
+p {
+  font-weight: 800;
+  margin-bottom: 0;
+}
 
 
+@media only screen and (max-width: 1000px) {
+  .googlemap-container {
+    display: none;
+  }
 
+  .listDetail-contain {
+    width: 100%;
+  }
+}
 
-
-
+/* Semantic UI overrides */
 .InputFromTo .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
   background-color: #f0f8ff !important;
   color: #4a90e2;

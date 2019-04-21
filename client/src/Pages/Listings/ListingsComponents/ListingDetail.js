@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SlideShow from './SlideShow';
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { setHighlight } from '../../../actions/highlightListingActions';
 
@@ -27,13 +27,12 @@ class ListingDetail extends Component {
   }
 
   render() {
-    const { listing, checkin, checkout } = this.props;
+    const { listing } = this.props;
     const { name, roomType } = this.state;
-
-
+    console.log(listing)
     return (
       <li id={"id" + listing.id}
-        className={this.props.activeListing.activeListing.value === listing.id ? 'activeClick' : 'list-item'}
+        className={this.props.activeListing.activeListing.value === listing.id ? 'list-item activeClick' : 'list-item'}
         onMouseEnter={this.highlight.bind(this, listing.id)}
         onMouseLeave={this.highlight.bind(this, 0)}>
           <div className="listDetail-media">
@@ -41,10 +40,10 @@ class ListingDetail extends Component {
           </div>
 
           <div className="listDetail-info">
-            <span>{roomType}</span>
+            <span className={"roomType " +  (roomType === "Cirro+" ? "special" : '')}>{roomType}</span>
+            <span style={{"fontSize": "x-small"}}> ({listing.personCapacity} Person | {listing.bedroomsNumber} Bedroom | {listing.bathroomsNumber} Bath)</span>
             <h3>{name}</h3>
-              <p>${listing.price}</p>
-              <p>Max # Guests: {listing.personCapacity}</p>
+              <p>${listing.price} per night</p>
               {/* <Link to={{pathname: `/${name}/${listing.id}`, state:{checkin: checkin, checkout: checkout} }} className="ui button green" type='submit'>View</Link> */}
           </div>
       </li>

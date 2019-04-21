@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Icon } from 'semantic-ui-react';
 import { handleChange } from '../../../actions/activeListingActions';
-import mapIcon from '../../../media/comment-map-icon.png';
 
 class MapListing extends Component {
   constructor(props) {

@@ -8,6 +8,11 @@ a {
   margin: auto 0 0 0 !important;
 }
 
+h2:first-child {
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+
 .hero {
   height: 100vh;
   background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url("http://www.ibiobq.org/wp-content/uploads/2015/08/o-CHICAGO-RIVER-facebook.jpg");
@@ -28,6 +33,15 @@ a {
   list-style: none;
 }
 
+.cirroList {
+  margin-top: 30px;
+  overflow: auto;
+}
+
+hr {
+  margin: 0;
+}
+
 form {
   top: 50%;
   display: flex !important;
@@ -39,7 +53,7 @@ form {
   padding: 20px;
 }
 
-ul {
+.allListings {
   margin: 0;
   padding: 0;
   display: inline-flex;
@@ -48,7 +62,7 @@ ul {
 
 h3 {
   margin-top: 2px;
-  letter-spacing: .08rem;
+  text-align: left;
   font-size: 20px;
 }
 
@@ -82,6 +96,8 @@ h3 {
   flex: 1 0 21%;
   margin: 10px;
   padding: 10px;
+  max-width: 325px;
+  border-radius: 10px;
 }
 
 .list-item:hover {
@@ -98,9 +114,21 @@ h3 {
 }
 
 .activeClick {
-  background: #ab7d41 !important;
+  background: #a8bce8 !important;
 }
 
+.roomType {
+  padding: 5px;
+  margin-top: 5px;
+  display: inline-block;
+  border-radius: 12px;
+  font-size: smaller;
+  background-color: #97c6e6;
+}
+
+.special {
+  background-color: #973dde;
+}
 
 
 .DayPicker-Day--disabled {
@@ -124,14 +152,47 @@ p {
 }
 
 
+
+@media (max-width: 1367px) {
+  .list-item {
+    flex: 1 0 29%;
+  }
+}
+
+
+@media only screen and (max-width: 1025px) {
+  .list-item {
+    flex: 1 0 35%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .list-item {
+    flex: 1 0 80%;
+    margin: 5px auto;
+    border: 1px #dadada solid;
+  }
+}
+
+
 @media only screen and (max-width: 1000px) {
   .googlemap-container {
     display: none;
   }
 
   .listDetail-contain {
+    padding: 0 15px 15px 15px;
     width: 100%;
   }
+}
+
+
+.slide-container {
+  width: 70%;
+  margin: auto; }
+
+.cirroList, .allListings {
+  background-color: #cecece;
 }
 
 /* Semantic UI overrides */
